@@ -21,19 +21,19 @@ class Board():
             for col in range(COLS):
                 if col % 2 != row % 2:
                     if row < 3:
-                        self.board[col].append(Piece(row, col, WHITE))
+                        self.board[row].append(Piece(row, col, WHITE))
                     elif row > 4:
-                        self.board[col].append(Piece(row, col, RED))
+                        self.board[row].append(Piece(row, col, RED))
                     else:
-                        self.board[col].append(0)
+                        self.board[row].append(0)
                 else:
-                    self.board[col].append(0)
+                    self.board[row].append(0)
 
     def draw(self, window):
-        draw_squares(window)
+        self.draw_squares(window)
         for row in range(ROWS):
             for col in range(COLS):
                 field_content = self.board[row][col]
                 if field_content != 0:
-                    field_content.draw()
+                    field_content.draw(window)
                     

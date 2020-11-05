@@ -15,8 +15,8 @@ class Piece:
         self.calculate_position()
 
     def calculate_position(self):
-        self.x = (self.col + 0.5) * SQUARE_SIZE 
-        self.y = (self.row + 0.5) * SQUARE_SIZE
+        self.x = int((self.col + 0.5) * SQUARE_SIZE)
+        self.y = int((self.row + 0.5) * SQUARE_SIZE)
 
     def make_king(self):
         self.king = True
