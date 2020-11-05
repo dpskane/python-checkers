@@ -1,5 +1,6 @@
 import pygame
-from .constants import BLACK, ROWS, COLS, RED, SQUARE_SIZE
+from .constants import BLACK, ROWS, COLS, RED, WHITE, SQUARE_SIZE
+from .piece import Piece
 
 class Board():
     def __init__(self):
@@ -15,5 +16,24 @@ class Board():
                 pygame.draw.rect(window, RED, (col * SQUARE_SIZE, row * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 
     def create_board(self):
-        pass
+        for row in range(ROWS):
+            self.board.append([])
+            for col in range(COLS):
+                if col % 2 != row % 2:
+                    if row < 3:
+                        self.board[col].append(Piece(row, col, WHITE))
+                    elif row > 4:
+                        self.board[col].append(Piece(row, col, RED))
+                    else:
+                        self.board[col].append(0)
+                else:
+                    self.board[col].append(0)
 
+    def draw(self, window):
+        draw_squares(window)
+        for row in range(ROWS):
+            for col in range(COLS):
+                field_content = self.board[row][col]
+                if field_content != 0:
+                    field_content.draw()
+                    
