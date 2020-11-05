@@ -8,6 +8,7 @@ class Board():
         self.selected_piece = None
         self.red_left = self.white_left = 12
         self.red_kings = self.white_kings = 0
+        self.create_board()
 
     def draw_squares(self, window):
         window.fill(BLACK)
@@ -36,4 +37,18 @@ class Board():
                 field_content = self.board[row][col]
                 if field_content != 0:
                     field_content.draw(window)
-                    
+
+    def move_piece_to(self, piece, row, col):
+        self.board[row][col], self.board[piece.row][piece.col] = self.board[piece.row][piece.col], self.board[row][col]
+        piece.move_to(row, col)
+
+        # no further checks needed, because of direction limitations
+        if row == 0 or row == ROWS:
+            piece.make_king()
+            if piece.color == WHITE:
+                self.white_kings += 1
+            else:
+                self.red_kings += 1
+            
+    def get_piece(self, row, col):
+        return self.board[row][col]
