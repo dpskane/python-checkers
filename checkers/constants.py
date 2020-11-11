@@ -15,6 +15,14 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GREY = (128, 128, 128)
 
+PLAYER_1_COLOR = RED        # bottom player, moves up (-1 direction)
+PLAYER_2_COLOR = WHITE
+
+HIGHLIGHT_COLOR = BLUE
+
+VALID_SQUARES_COLOR = BLACK
+INVALID_SQUARES_COLOR = RED
+
 CROWN_WIDTH = (PIECE_RADIUS * 9 ) // 5
 CROWN_HEIGHT = PIECE_RADIUS
 CROWN_IMG = pygame.transform.scale(pygame.image.load('checkers/assets/crown.png'), (CROWN_WIDTH, CROWN_HEIGHT))
