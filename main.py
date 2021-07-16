@@ -9,19 +9,26 @@ FPS = 60
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Checkers')
 
+
 def get_row_col_from_pos(pos):
     x, y = pos
     row = y // SQUARE_SIZE
     col = x // SQUARE_SIZE
     return row, col
 
+
 def main():
     run = True
     clock = pygame.time.Clock()
     game = Game(WINDOW)
+    print("game started")
 
     while run:
         clock.tick(FPS)
+
+        if game.winner() is not None:
+            print("winner" + str(game.winner()))
+            break
 
         # event.get() returns all events that happened since the last tick
         for event in pygame.event.get():

@@ -1,0 +1,5 @@
+these things are still missing:
+- check each turn whether a piece can be captured. if so, a capture move is *mandatory*
+- in case of a "diamond", two moves are possible for normal pieces and many moves for a king (currently a king cannot go around in a perfect circle)
+    change code in a way that allows a choice here. that's making the code rather bloated and complicated, though
+- highlight the actual winner
